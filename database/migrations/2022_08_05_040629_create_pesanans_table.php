@@ -17,6 +17,7 @@ class CreatePesanansTable extends Migration
             $table->id();
             $table->unsignedBigInteger('menu_id');
             $table->bigInteger('jumlah');
+            $table->bigInteger('subtotal');
             $table->timestamps();
         });
     }
