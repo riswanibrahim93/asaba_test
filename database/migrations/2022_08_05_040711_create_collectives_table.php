@@ -15,6 +15,8 @@ class CreateCollectivesTable extends Migration
     {
         Schema::create('collectives', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_collective');
+            $table->bigInteger('total');
             $table->timestamps();
         });
     }
