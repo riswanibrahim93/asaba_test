@@ -30,14 +30,14 @@
             <a class="nav-link me-5" href="{{ route('pilih-menu') }}"><img class="logo-otten-1" src="https://cdn.kibrispdr.org/data/757/logo-makan-png-5.png"></a>            
             <div class="collapse navbar-collapse" id="navbarScroll">
               <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
-                <li class="nav-item item-search">
+                <!-- <li class="nav-item item-search">
                   <div class="input-group search">
                     <span class="input-group-text search" id="basic-addon1"><img class="logo-loupe" src="{!! asset('assets/img/loupe.png') !!}"></span>
                     <form action="" method="">
                       <input type="text" name="cari" class="form-control search input" placeholder="Cari menu..." aria-label="Username" aria-describedby="basic-addon1">
                     </form>
                   </div>
-                </li>
+                </li> -->
               </ul>
               <div class="d-flex">
                 <a class="nav-link keranjang-pesanan" href="{{ route('checkOut') }}">

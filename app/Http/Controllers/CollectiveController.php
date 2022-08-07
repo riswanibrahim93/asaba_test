@@ -162,7 +162,7 @@ class CollectiveController extends Controller
         CollectiveDetail::truncate();
         CollectiveDetailMenu::truncate();
 
-        return view('dashboard.print_pesanan', compact('data'));
+        return view('dashboard.print_pesanan2', compact('data'));
         // return redirect()->action([CollectiveController::class, 'index']);
     }    
 }

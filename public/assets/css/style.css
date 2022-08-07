@@ -322,3 +322,7 @@ hr{
     letter-spacing: 0.02em;
     font-size: 20px;
 }
+.site-header__action {
+	float: right;
+	padding: 8px 0;
+}

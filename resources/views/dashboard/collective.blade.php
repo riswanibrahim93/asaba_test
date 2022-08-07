@@ -5,9 +5,6 @@
   <div class="container">
     <div class="judul">
       <h4><strong>Collective</strong></h4>
-      <div class="text-right">
-        <a onclick="tambahOrang()" class="btn button-tampil center">+ Tambah Orang</a>
-      </div> 
       <input type="text" id="id-collective" hidden="" value="1">     
     </div>
     @forelse($collective as $coll)
@@ -20,12 +17,11 @@
         <span class="text-secondary" style="font-size: 10px;">Minimal pembelian 40.000, Diskon 30% (Max 30.000) <p>Ongkir 5.000</p></span>
     </div>
     <hr style="background-color: rgb(91, 159, 85); height: 5px;">
-
-    <div class="text-right mb-5">
+    <div class="text-right">
+      <a onclick="tambahOrang()" class="btn button-tampil center">+ Tambah Orang</a>
       <a href="{{ route('pesanSekarang', $coll->id) }}" class="btn button-pesan center">Pesan Sekarang</a>
-      <!-- <button type="button" onclick="pesanSekarang()" class="btn button-tampil center">Pesan Sekarang</button> -->
     </div> 
-    <div class="isi-collective">
+    <div class="isi-collective mt-5">
       @foreach($coll->collective_detail as $detail)
       <div class="form-row mt-2"> 
         <div class="form-group col-sm-4" id='id{{$detail->id}}}'>
@@ -81,6 +77,9 @@
       </div>
     </div>
     <hr style="background-color: rgb(91, 159, 85); height: 5px;">
+    <div class="text-right">
+      <a onclick="tambahOrang()" class="btn button-tampil center">+ Tambah Orang</a>
+    </div> 
     <div class="isi-collective">  
            
     </div>
