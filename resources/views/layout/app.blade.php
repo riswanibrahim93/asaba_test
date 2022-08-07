@@ -40,7 +40,7 @@
                 </li>
               </ul>
               <div class="d-flex">
-                <a class="nav-link" href="{{ route('checkOut') }}">
+                <a class="nav-link keranjang-pesanan" href="{{ route('checkOut') }}">
                   <img class="logo-otten-1" src="https://img1.pngdownload.id/20171220/skq/shopping-cart-png-5a3a8fc8964401.8796450215137873366155.jpg">
                   <span class="badge badge-danger" id="pesanan"></span>                 
                 </a>
@@ -63,7 +63,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript">
       $( document ).ready(function() {
-        pesanan();
+        // pesanan();
       });
       function pesanan(){
         $.ajax({

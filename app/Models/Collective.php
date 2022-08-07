@@ -14,7 +14,7 @@ class Collective extends Model
         'nama_collective','total'
     ];
 
-    public function collective_detail_menu(){
-    	return $this->belongsTo(CollectiveDetail::class);
+    public function collective_detail(){
+    	return $this->hasMany(CollectiveDetail::class);
     }
 }

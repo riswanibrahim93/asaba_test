@@ -16,10 +16,10 @@ class CollectiveDetail extends Model
     ];
 
     public function collective(){
-        return $this->hasOne(Collective::class, 'id', 'collective_detail_id');
+        return $this->belongsTo(Collective::class);
     }
 
     public function collective_detail_menu(){
-    	return $this->belongsTo(CollectiveDetailMenu::class);
+    	return $this->hasMany(CollectiveDetailMenu::class);
     }
 }

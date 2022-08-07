@@ -16,7 +16,9 @@ class CreateCollectiveDetailMenusTable extends Migration
         Schema::create('collective_detail_menus', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('collective_detail_id');
-            $table->bigInteger('menu_id');
+            $table->bigInteger('menu_id');          
+            $table->bigInteger('jumlah');
+            $table->bigInteger('subtotal');
             $table->timestamps();
         });
     }

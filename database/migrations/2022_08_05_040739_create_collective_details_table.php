@@ -16,8 +16,8 @@ class CreateCollectiveDetailsTable extends Migration
         Schema::create('collective_details', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('collective_id');
-            $table->string('nama');
-            $table->bigInteger('total');
+            $table->string('nama');       
+            $table->bigInteger('total')->nullable();
             $table->timestamps();
         });
     }
