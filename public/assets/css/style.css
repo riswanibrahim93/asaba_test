@@ -2,6 +2,9 @@ body{
 	font-family: 'Titillium Web', sans-serif;
 	font-weight: bold;
 }
+.content{
+	min-height: 405px;
+}
 .garis-atas{
 	height: 35px;
 	background: rgb(109, 191, 103) none repeat scroll 0% 0%;
@@ -147,6 +150,12 @@ h1, h2, h3, h4, h5, h6{
 	object-fit: contain;
 	height: 200px;
 }
+.card-img-collective {
+	border-radius: 12px 12px 0px 0px;
+	width: 100%;
+	object-fit: contain;
+	max-height: 100px
+}
 .font{
 	font-size: 12px;
 	font-weight: bold;
@@ -184,6 +193,16 @@ h1, h2, h3, h4, h5, h6{
 	border-style: none;
 	padding: 8px 15px;
 	border: 1px solid rgb(91, 159, 85);
+	display: inline;
+	font-weight: normal;
+}
+.button-pesan{
+	background: #e34545 none repeat scroll 0% 0%;
+	color: white;
+	border-radius: 8px;
+	border-style: none;
+	padding: 8px 15px;
+	border: 1px solid #a73636;
 	display: inline;
 	font-weight: normal;
 }
@@ -231,6 +250,10 @@ h1, h2, h3, h4, h5, h6{
 .button-collective:hover{
 	color: white;
 	background: #9d2531;
+}
+.button-pesan:hover{
+	color: white;
+	background: #a73636;
 }
 .bintang{
 	color: rgb(245, 206, 52);

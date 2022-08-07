@@ -74,7 +74,11 @@
     $.ajax({
       type:'GET',
       url:"{{ route('getCollectiveDetailMenu') }}",
+      data:{
+        collective_id: {{$data['collectiveDetail_id']}},
+      },
       success:function(data){
+        console.log(data)
         $('#pesanan-collective').html(data.length);
       }
     });   

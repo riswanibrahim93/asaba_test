@@ -33,3 +33,4 @@ Route::get('/checkOut-collective/{id}', [CollectiveController::class, 'checkOutC
 Route::post('/keranjangCollective', [CollectiveController::class, 'keranjangCollective'])->name('keranjang-collective');
 Route::put('/CollectiveDetailMenu', [CollectiveController::class, 'updateCollectiveDetailMenu'])->name('updateCollectiveDetailMenu');
 Route::post('/beliCollective/{id}', [CollectiveController::class, 'beliCollective'])->name('beliCollective');
+Route::get('/pesanSekarang/{id}', [CollectiveController::class, 'pesanSekarang'])->name('pesanSekarang');

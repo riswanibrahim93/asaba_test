@@ -5,10 +5,16 @@
   <div class="container">
     <div class="judul">
       <h4><strong>Menu</strong></h4>
-      <div class="text-right">
+      <div class="text-right" style="float: right;">
+        <div class="card mb-3" style="max-width: 350px;">          
+          <h6 class="font" style="text-align: justify; font-size: 10px; padding-right: 10px; padding-left: 10px;">Yuk Cobain, Menu Collective menampung orderan banyak orang, dan Menghitungkan pengeluaran masing-masing setelah didiskon</h6>
+        </div>
         <a href="{{ route('collective') }}" class="btn button-collective center">Collective</a>
       </div>      
     </div>
+    <br>
+    <br>
+    <br>
     @include('dashboard.menu')
   </div>
 </div>

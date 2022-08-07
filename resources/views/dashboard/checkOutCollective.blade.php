@@ -1,5 +1,6 @@
 @extends('layout.app')
 @section('content')
+<div class="content">
 <div class="breadcrumbs">
     <div class="container">
         <div class="row align-items-center">
@@ -34,14 +35,13 @@
                                     <td class="text-center">
                                         <div>
                                             <button class="btn btn-outline-success" type="button" onclick="keranjang('-',{{$item->menu->id}})" id="button-addon1">-</button>
-                                            <input class="text-center border" type="text" id="jml{{$item->id}}" style="width: 10%" value="{{ $item->jumlah }}">
+                                            <input class="text-center border" type="text" id="jml{{$item->menu->id}}" style="width: 10%" value="{{ $item->jumlah }}">
                                             <button class="btn btn-outline-success" type="button" onclick="keranjang('+',{{$item->menu->id}})" id="button-addon1">+</button>
                                         </div>
                                     </td>
                                     <td>
-                                        <input type="text" hidden id="harga{{$item->id}}" value="{{ $item->menu->Harga }}">
-                                        <input type="text" hidden id="harga{{$item->id}}" value="{{ $item->menu->Harga }}">
-                                        <h5 class="subtotal mb-2" id="sub{{$item->id}}">
+                                        <input type="text" hidden id="harga{{$item->menu->id}}" value="{{ $item->menu->Harga }}">
+                                        <h5 class="subtotal mb-2" id="sub{{$item->menu->id}}">
                                             {{ $item->menu->Harga*$item->jumlah }}
                                         </h5>
                                     </td>
@@ -79,14 +79,14 @@
     </div>
 
 </section>
-<div style="margin-bottom: 120px;"></div>
+</div>
 @endsection
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 
     $( document ).ready(function() {
-        totalKeranjang();
+        totalKeranjang({{$id}});
     });
     
 
@@ -108,7 +108,7 @@
         }
 
         updatePesanan(id, jml, harga);
-        totalKeranjang();
+        totalKeranjang({{$id}});
     }
 
 
@@ -143,11 +143,14 @@
 
     }
 
-    function totalKeranjang(){
+    function totalKeranjang(id){
         let total = 0;
         $.ajax({
             type:'GET',
             url:"{{ route('getCollectiveDetailMenu') }}",
+            data:{
+                collective_id: id,
+            },
           success:function(data){
             console.log(data);
             for (var i = 0; i < data.length; i++) {
@@ -155,6 +158,7 @@
                     total +=  data[i]['subtotal'];
                 }
             }
+            console.log(total)
             $('#totalKeranjang').html(toRp(total));
             $('#total').val(total);
           }

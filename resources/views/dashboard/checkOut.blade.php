@@ -1,5 +1,6 @@
 @extends('layout.app')
 @section('content')
+<div class="content">
 <div class="breadcrumbs">
     <div class="container">
         <div class="row align-items-center">
@@ -91,7 +92,7 @@
     </div>
 
 </section>
-<div style="margin-bottom: 120px;"></div>
+</div>
 @endsection
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
