@@ -13,24 +13,24 @@ class MenuController extends Controller
     	return view('dashboard.index', compact('menus'));
     }
     public function getPesanan(){
-    	$pesanan = Pesanan::all();
+    	$pesanan = Pesanan::where('status','DIPESAN')->get();
     	return response()->json($pesanan);
     }
     public function checkOut(){
-    	$checkOut = Pesanan::with('menu')->get();
-    	// dd($checkOut);
+    	$checkOut = Pesanan::with('menu')->where('status','DIPESAN')->get();
     	return view('dashboard.checkOut', compact('checkOut'));
     }
     public function keranjang(Request $request){
     	$id = $request->id;
     	$menu = Menu::find($id);
-    	$cari_pesanan = Pesanan::where('menu_id', $id)->first();
+    	$cari_pesanan = Pesanan::where('menu_id', $id)->where('status', 'DIPESAN')->first();
     	$pesanan;
     	$status = '0';
 
     	if($cari_pesanan != null){
     		$cari_pesanan->jumlah += 1;
     		$cari_pesanan->subtotal = $cari_pesanan->jumlah*$menu->Harga;
+            $cari_pesanan->status = 'DIPESAN';
     		$cari_pesanan->save(); 
     		$status = '200';
     	}
@@ -39,6 +39,7 @@ class MenuController extends Controller
 	    	$pesanan->menu_id = $id;
     		$pesanan->jumlah = 1;
     		$pesanan->subtotal = $menu->Harga;
+            $pesanan->status = 'DIPESAN';
     		$pesanan->save();
     		$status = '200';
     	}
@@ -57,8 +58,12 @@ class MenuController extends Controller
     	
     	return response()->json($status);
     }
-    public function beli(){
-    	Pesanan::truncate();
+    public function beli($id){
+        $id = explode(",",$id);
+        $id = array_slice($id,1);
+        $cari_pesanan = Pesanan::whereIn('id', $id)
+                                ->update(['status' => 'DIPROSES']);
+
     	return redirect()->action([MenuController::class, 'index']);
     }
 }

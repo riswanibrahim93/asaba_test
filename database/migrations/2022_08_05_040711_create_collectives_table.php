@@ -17,6 +17,7 @@ class CreateCollectivesTable extends Migration
             $table->id();
             $table->string('nama_collective');
             $table->bigInteger('total_collective')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }

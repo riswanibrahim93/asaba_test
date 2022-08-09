@@ -24,7 +24,7 @@ Route::get('/getPesanan', [MenuController::class, 'getPesanan'])->name('getPesan
 Route::get('/checkOut', [MenuController::class, 'checkOut'])->name('checkOut');
 Route::post('/keranjang', [MenuController::class, 'keranjang'])->name('keranjang');
 Route::put('/pesanan/{id}', [MenuController::class, 'updatePesanan'])->name('updatePesanan');
-Route::get('/beli', [MenuController::class, 'beli'])->name('beli');
+Route::get('/beli/{id}', [MenuController::class, 'beli'])->name('beli');
 
 Route::get('/collective', [CollectiveController::class, 'index'])->name('collective');
 Route::post('/pilihMenuCollective', [CollectiveController::class, 'pilihMenuCollective'])->name('pilih-menu-collective');

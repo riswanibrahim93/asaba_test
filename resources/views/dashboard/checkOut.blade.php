@@ -27,7 +27,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php 
+                                    $id_pesanan = "";
+                                ?>
                                 @forelse ($checkOut as $item)
+                                <?php 
+                                    $id_pesanan = $id_pesanan.','.$item->id;
+                                ?>
                                 <tr>                                    
                                     <td>
                                         <h5 class="nama mb-2">{{ $item->menu->Nama}}</h5>
@@ -78,7 +84,7 @@
                                     <div class="col-sm-6 text-right" id="totalBayar"></div>
                                 </div>
                                 <div class="button mt-3">                                    
-                                    <a href="{{ route('beli') }}" type="button" onclick="pilih()" class="btn button-tampil" style="width:100% !important" class="btn m-0">Checkout</a>                     
+                                    <a href="{{ route('beli', $id_pesanan) }}" type="button" class="btn button-tampil" style="width:100% !important" class="btn m-0">Checkout</a>                     
                                 </div>
                                 <div class="mt-2">
                                     <span class="text-secondary" style="font-size: 8px;">Minimal pembelian 40.000, Diskon 30% (Max 30.000)</span>
