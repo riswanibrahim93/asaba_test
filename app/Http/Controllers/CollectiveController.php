@@ -11,18 +11,20 @@ use App\Models\CollectiveDetailMenu;
 class CollectiveController extends Controller
 {
     public function index(){
-    	$collective = Collective::with('collective_detail')->get();
+    	$collective = Collective::with('collective_detail')->where('status','DIPESAN')->get();
         $collective_detail_menu = CollectiveDetailMenu::with('menu')->get();
-    	// dd($collective_detail_menu);
     	return view('dashboard.collective', compact('collective','collective_detail_menu'));
     }
 
     public function pilihMenuCollective(Request $request){
     	// dd($request);
-    	$collective = Collective::where('nama_collective', $request->namaCollective)->first();
+    	$collective = Collective::where('nama_collective', $request->namaCollective)
+                                ->where('id', $request->idCollective)->first();
+        // dd($collective);
     	if(!$collective){
     		$collective = new Collective;
     		$collective->nama_collective = $request->namaCollective;
+            $collective->status = 'DIPESAN';
     		$collective->save();
     	}
     	$collectiveDetail = CollectiveDetail::where('nama', $request->username)
@@ -115,6 +117,7 @@ class CollectiveController extends Controller
             $total += $collective_detail->total;
         }
         $collective->total_collective = $total;
+        $collective->status = 'DIPROSES';
         $collective->save();
 
         $collective_detail_menu = CollectiveDetailMenu::with('menu')->get();
@@ -158,9 +161,9 @@ class CollectiveController extends Controller
 
         // dd($data);
 
-        Collective::truncate();
-        CollectiveDetail::truncate();
-        CollectiveDetailMenu::truncate();
+        // Collective::truncate();
+        // CollectiveDetail::truncate();
+        // CollectiveDetailMenu::truncate();
 
         return view('dashboard.print_pesanan2', compact('data'));
         // return redirect()->action([CollectiveController::class, 'index']);

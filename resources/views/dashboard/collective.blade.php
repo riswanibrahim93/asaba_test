@@ -11,6 +11,7 @@
     <div class="form-row">
       <div class="form-group col-sm-3">
         <input type="text" name="nama_collective" class="form-control" id="nama_collective" readonly required placeholder="Nama Collective" value="{{$coll->nama_collective}}">
+        <input type="text" id="id_collective" hidden value="{{$coll->id}}">
       </div>
     </div>
     <div>
@@ -28,6 +29,7 @@
           <form action="{{route('pilih-menu-collective')}}" method="POST">
             @csrf
             <input type="text" class="form-control" name="namaCollective" hidden value="{{$coll->nama_collective}}">
+            <input type="text" class="form-control" name="idCollective" hidden value="{{$coll->id}}">
             <input type="text" class="form-control" name="username" readonly id="username" value="{{$detail->nama}}">
             <h6><strong>Total: {{$detail->total}}</strong></h6>
             <div class="mt-3">
@@ -74,6 +76,7 @@
     <div class="form-row">
       <div class="form-group col-sm-3">
         <input type="text" name="nama_collective" class="form-control" id="nama_collective" required placeholder="Nama Collective" value="">
+        <input type="text" id="id_collective" hidden value="">
       </div>
     </div>
     <hr style="background-color: rgb(91, 159, 85); height: 5px;">
@@ -96,12 +99,14 @@
     let isiColective = $('.isi-collective');
     let idColective = $('#id-collective').val();
     let namaCollective = $('#nama_collective').val();
+    let idCollective = $('#id_collective').val();
     let text = `<div class="form-row mt-2"> 
           <div class="form-group col-sm-4" id='id${idColective}'>
             <form action="{{route("pilih-menu-collective")}}" method="POST">
               @csrf
               <input type="text" class="form-control" name="namaCollective" hidden value="${namaCollective}">
-              <input type="text" class="form-control" name="username" required id="username" placeholder="Username">
+              <input type="text" class="form-control" name="idCollective" hidden value="${idCollective}">
+              <input type="text" class="form-control" name="username" required id="username" placeholder="Username">              
               <div class="mt-3">
                 <button class="btn button-beli center" style="font-size: 10px;">+ Tambah Menu</button>
               </div>
